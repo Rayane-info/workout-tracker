@@ -1,8 +1,17 @@
 # workout-tracker
 
-Faire toute l'UE de LU2IN009, tout en implémentant les concepts clés que j'apprends au fur et à mesure sur une application qui me sera utile, et me familiariser davantage avec Github.
+Faire/découvrir toute l'UE de LU2IN009 (Base de Données Relationnelles/SQL), tout en implémentant les concepts clés que j'apprends au fur et à mesure sur une application qui me sera utile, et me familiariser davantage avec Github.
 
+# Concept du projet:
+## workout-tracker, appli qui permet de tracker mes séances au fil des jours, ainsi que ma nutrition, avec fonctions pratiques.
+- Les commits seront utilisés (basés sur leur temps), pour comprendre le rythme de progression cours/code.
 ---
+
+## Structure du projet
+
+
+
+
 
 ## PLANNING RATTRAPAGE BDD - 4 SEMAINES (11 COURS)
 
@@ -37,4 +46,5 @@ Faire toute l'UE de LU2IN009, tout en implémentant les concepts clés que j'app
 
 ---
 
-## Structure du projet
+# Liens utiles 
+[Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
