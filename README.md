@@ -16,7 +16,7 @@ Faire/découvrir toute l'UE de LU2IN009 (Base de Données Relationnelles/SQL), t
 ## PLANNING RATTRAPAGE BDD - 4 SEMAINES (11 COURS)
 
 ### SEMAINE 1 -- 13/04/2026 → 20/04/2026
-- [Cours 1] Modèle Entités-Associations
+- [Cours 1] Modèle Entités-Associations 12/04/2026 Effectué! (Plus un peu de SQLBOLT jusqu'à Ex6)
 - [Cours 2] Passage E/A → Modèle relationnel
 - → Dessiner E/A du tracker sur papier
 - → Traduire en tables
