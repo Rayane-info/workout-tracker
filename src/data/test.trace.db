@@ -1,0 +1,438 @@
+2026-04-18 23:24:59.008159+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EXERCISE" not found (this database is empty); SQL statement:
+SELECT * from exercise [42104-232]
+2026-04-18 23:26:00.840222+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATHLETE" not found (this database is empty); SQL statement:
+SELECT * FROM athlete [42104-232]
+2026-04-18 23:26:11.480197+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATHLETE" not found (this database is empty); SQL statement:
+SELECT * FROM athlete; [42104-232]
+2026-04-18 23:27:20.778010+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "[*]""LANGUAGE IS SQL (H2)""\000a\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"
+Syntax error in SQL statement "[*]""LANGUAGE IS SQL (H2)""\000a\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"; SQL statement:
+"LANGUAGE IS SQL (H2)"
+
+CREATE TABLE IF NOT EXISTS athlete(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    genre VARCHAR(16) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    height INTEGER NOT NULL,    
+)
+ 
+CREATE TABLE IF NOT EXISTS workout(
+    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    type VARCHAR(255),
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)
+)
+
+CREATE TABLE IF NOT EXISTS exercise(
+    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,
+    exercise_name VARCHAR(255) NOT NULL,
+    optional_description VARCHAR(255)
+)
+
+CREATE TABLE IF NOT EXISTS meal(
+    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    meal_type VARCHAR(255) NOT NULL,
+    calories INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS aliment(
+    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    quantity FLOAT NOT NULL,
+    calories_per_100g FLOAT NOT NULL
+    protein_per_100g FLOAT NOT NULL,
+    carbs_per_100g FLOAT NOT NULL,
+    fats_per_100g FLOAT NOT NULL,
+)
+
+CREATE TABLE IF NOT EXISTS hydration(
+    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    volume FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+
+CREATE TABLE IF NOT EXISTS sleep(
+    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS meal_aliment(
+    meal_id INTEGER NOT NULL,
+    aliment_id INTEGER NOT NULL,
+    quantity FLOAT NOT NULL,
+    PRIMARY KEY (meal_id, aliment_id),
+    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),
+    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)
+)
+
+CREATE TABLE IF NOT EXISTS athlete_goal(
+    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    target_date DATE NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS progress(
+    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    body_fat_percentage FLOAT NOT NULL,
+    muscle_mass FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS injury(
+    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    recovery_date DATE,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+ [42000-232]
+2026-04-18 23:28:12.504203+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "[*]""LANGUAGE IS SQL (H2)""\000a\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"
+Syntax error in SQL statement "[*]""LANGUAGE IS SQL (H2)""\000a\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"; SQL statement:
+"LANGUAGE IS SQL (H2)"
+
+CREATE TABLE IF NOT EXISTS athlete(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    genre VARCHAR(16) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    height INTEGER NOT NULL,    
+)
+ 
+CREATE TABLE IF NOT EXISTS workout(
+    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    type VARCHAR(255),
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)
+)
+
+CREATE TABLE IF NOT EXISTS exercise(
+    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,
+    exercise_name VARCHAR(255) NOT NULL,
+    optional_description VARCHAR(255)
+)
+
+CREATE TABLE IF NOT EXISTS meal(
+    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    meal_type VARCHAR(255) NOT NULL,
+    calories INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS aliment(
+    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    quantity FLOAT NOT NULL,
+    calories_per_100g FLOAT NOT NULL
+    protein_per_100g FLOAT NOT NULL,
+    carbs_per_100g FLOAT NOT NULL,
+    fats_per_100g FLOAT NOT NULL,
+)
+
+CREATE TABLE IF NOT EXISTS hydration(
+    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    volume FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+
+CREATE TABLE IF NOT EXISTS sleep(
+    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS meal_aliment(
+    meal_id INTEGER NOT NULL,
+    aliment_id INTEGER NOT NULL,
+    quantity FLOAT NOT NULL,
+    PRIMARY KEY (meal_id, aliment_id),
+    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),
+    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)
+)
+
+CREATE TABLE IF NOT EXISTS athlete_goal(
+    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    target_date DATE NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS progress(
+    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    body_fat_percentage FLOAT NOT NULL,
+    muscle_mass FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS injury(
+    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    recovery_date DATE,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+ [42000-232]
+2026-04-18 23:28:44.460208+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER [*]AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"; attendu "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "\000aCREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER [*]AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL,    \000a)\000a \000aCREATE TABLE IF NOT EXISTS workout(\000a    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    type VARCHAR(255),\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS workout_set(\000a    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    repetitions INTEGER,\000a    duration_seconds INTEGER,\000a    weight FLOAT,\000a    optional VARCHAR(255),\000a    workout_id INTEGER NOT NULL,\000a    exercise_id INTEGER NOT NULL,\000a    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),\000a    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)\000a)\000a\000aCREATE TABLE IF NOT EXISTS exercise(\000a    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    exercise_name VARCHAR(255) NOT NULL,\000a    optional_description VARCHAR(255)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal(\000a    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    meal_type VARCHAR(255) NOT NULL,\000a    calories INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS aliment(\000a    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    calories_per_100g FLOAT NOT NULL\000a    protein_per_100g FLOAT NOT NULL,\000a    carbs_per_100g FLOAT NOT NULL,\000a    fats_per_100g FLOAT NOT NULL,\000a)\000a\000aCREATE TABLE IF NOT EXISTS hydration(\000a    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    volume FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000a\000aCREATE TABLE IF NOT EXISTS sleep(\000a    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    duration INTEGER NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS meal_aliment(\000a    meal_id INTEGER NOT NULL,\000a    aliment_id INTEGER NOT NULL,\000a    quantity FLOAT NOT NULL,\000a    PRIMARY KEY (meal_id, aliment_id),\000a    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),\000a    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)\000a)\000a\000aCREATE TABLE IF NOT EXISTS athlete_goal(\000a    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    target_date DATE NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS progress(\000a    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    body_fat_percentage FLOAT NOT NULL,\000a    muscle_mass FLOAT NOT NULL,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a\000aCREATE TABLE IF NOT EXISTS injury(\000a    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,\000a    description VARCHAR(255) NOT NULL,\000a    date DATE NOT NULL,\000a    recovery_date DATE,\000a    athlete_id INTEGER NOT NULL,\000a    FOREIGN KEY (athlete_id) REFERENCES athlete(id)\000a)\000a"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+
+CREATE TABLE IF NOT EXISTS athlete(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    genre VARCHAR(16) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    height INTEGER NOT NULL,    
+)
+ 
+CREATE TABLE IF NOT EXISTS workout(
+    id_workout INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    type VARCHAR(255),
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise)
+)
+
+CREATE TABLE IF NOT EXISTS exercise(
+    id_exercise INTEGER AUTO_INCREMENT PRIMARY KEY,
+    exercise_name VARCHAR(255) NOT NULL,
+    optional_description VARCHAR(255)
+)
+
+CREATE TABLE IF NOT EXISTS meal(
+    id_meal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    meal_type VARCHAR(255) NOT NULL,
+    calories INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS aliment(
+    id_aliment INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    quantity FLOAT NOT NULL,
+    calories_per_100g FLOAT NOT NULL
+    protein_per_100g FLOAT NOT NULL,
+    carbs_per_100g FLOAT NOT NULL,
+    fats_per_100g FLOAT NOT NULL,
+)
+
+CREATE TABLE IF NOT EXISTS hydration(
+    id_hydration INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    volume FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+
+CREATE TABLE IF NOT EXISTS sleep(
+    id_sleep INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    duration INTEGER NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS meal_aliment(
+    meal_id INTEGER NOT NULL,
+    aliment_id INTEGER NOT NULL,
+    quantity FLOAT NOT NULL,
+    PRIMARY KEY (meal_id, aliment_id),
+    FOREIGN KEY (meal_id) REFERENCES meal(id_meal),
+    FOREIGN KEY (aliment_id) REFERENCES aliment(id_aliment)
+)
+
+CREATE TABLE IF NOT EXISTS athlete_goal(
+    id_goal INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    target_date DATE NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS progress(
+    id_progress INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    body_fat_percentage FLOAT NOT NULL,
+    muscle_mass FLOAT NOT NULL,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+
+CREATE TABLE IF NOT EXISTS injury(
+    id_injury INTEGER AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    recovery_date DATE,
+    athlete_id INTEGER NOT NULL,
+    FOREIGN KEY (athlete_id) REFERENCES athlete(id)
+)
+ [42001-232]
+2026-04-18 23:30:49.340921+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "CREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER [*]AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL\000a)"; attendu "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS athlete(\000a    id INTEGER [*]AUTO_INCREMENT PRIMARY KEY,\000a    genre VARCHAR(16) NOT NULL,\000a    name VARCHAR(255) NOT NULL,\000a    birth_date DATE NOT NULL,\000a    weight FLOAT NOT NULL,\000a    height INTEGER NOT NULL\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS athlete(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    genre VARCHAR(16) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    weight FLOAT NOT NULL,
+    height INTEGER NOT NULL
+) [42001-232]
+2026-04-18 23:32:22.936777+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EXERCISE" non trouvée
+Table "EXERCISE" not found; SQL statement:
+
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise) [42102-232]
+2026-04-18 23:32:47.813714+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EXERCISE" non trouvée
+Table "EXERCISE" not found; SQL statement:
+
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise) [42102-232]
+2026-04-18 23:34:19.813420+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EXERCISE" non trouvée
+Table "EXERCISE" not found; SQL statement:
+
+
+CREATE TABLE IF NOT EXISTS workout_set(
+    id_set INTEGER AUTO_INCREMENT PRIMARY KEY,
+    repetitions INTEGER,
+    duration_seconds INTEGER,
+    weight FLOAT,
+    optional VARCHAR(255),
+    workout_id INTEGER NOT NULL,
+    exercise_id INTEGER NOT NULL,
+    FOREIGN KEY (workout_id) REFERENCES workout(id_workout),
+    FOREIGN KEY (exercise_id) REFERENCES exercise(id_exercise) [42102-232]
+2026-04-19 00:21:57.888573+02:00 database: flush
+org.h2.message.DbException: Erreur générale: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/rayan/Downloads/2025-2026/Sorbonne/S4/LU2IN009/Projet_Tracker/workout-tracker/src/data/test.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/rayan/Downloads/2025-2026/Sorbonne/S4/LU2IN009/Projet_Tracker/workout-tracker/src/data/test.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:131)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.jpype.Reflector0.callMethod(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Erreur générale: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/rayan/Downloads/2025-2026/Sorbonne/S4/LU2IN009/Projet_Tracker/workout-tracker/src/data/test.mv.db [2.3.232/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/rayan/Downloads/2025-2026/Sorbonne/S4/LU2IN009/Projet_Tracker/workout-tracker/src/data/test.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/rayan/Downloads/2025-2026/Sorbonne/S4/LU2IN009/Projet_Tracker/workout-tracker/src/data/test.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 14 more
