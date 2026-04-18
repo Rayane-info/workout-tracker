@@ -10,19 +10,22 @@ Faire/découvrir toute l'UE de LU2IN009 (Base de Données Relationnelles/SQL), t
 ## Structure du projet
 
 
+## PLANNING RATTRAPAGE BDD (ANCIEN) - 4 SEMAINES (11 COURS)
+
+### SEMAINE 1 -- 13/04/2026 → 20/04/2026
+    [Cours 1] Modèle Entités-Associations 12/04/2026 Effectué! (Plus un peu de SQLBOLT jusqu'à Ex6)
+    [Cours 2] Passage E/A → Modèle relationnel Effectué, à revoir après néanmoins 18/04/2026
+    Tout SQLBOLT fini, j'ai des bases en sql, je commence l'implémentation 18/04/2026
 
 
-
-## PLANNING RATTRAPAGE BDD - 4 SEMAINES (11 COURS)
+## PLANNING RATTRAPAGE BDD (ANCIEN) - 4 SEMAINES (11 COURS)
 
 ### SEMAINE 1 -- 13/04/2026 → 20/04/2026
 - [Cours 1] Modèle Entités-Associations 12/04/2026 Effectué! (Plus un peu de SQLBOLT jusqu'à Ex6)
-- [Cours 2] Passage E/A → Modèle relationnel
-- → Dessiner E/A du tracker sur papier
-- → Traduire en tables
+- [Cours 2] Passage E/A → Modèle relationnel Effectué, à revoir après néanmoins 18/04/2026
 
 ### SEMAINE 2 -- 20/04/2026 → 27/04/2026
-- [Cours 3] Calcul relationnel
+- [Cours 3] Calcul relationnel Sauté, je commence la théorie mi- mai avec les TD après le projet
 - [Cours 4] Création de schéma SQL (DDL)
 - → Écrire CREATE TABLE
 - → Traduire des questions en calcul relationnel (tuple/domaine)

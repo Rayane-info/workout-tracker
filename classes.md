@@ -37,3 +37,27 @@
         - Un athlète effectue zéro ou plusieurs séances dans une journée
         - Un athlète mange zéro ou plusieurs aliments/repas par journée
         - Un exercice peut être adapté en fonction de l'athlète et de son objectif(optionnel)
+
+
+# Cours 2:
+### Application à mon projet workout-tracker:
+
+Athlète (<u>id</u>, genre, nom, date_naissance, poids, taille)
+
+Séance (<u>id_seance</u>, date, type, duree, #id_athlète)
+    #id_athlète → Athlète(id)
+
+Série (<u>id_serie</u>, charge, repetitions, rpe, #id_seance, #id_exercice)
+    #id_seance → Séance(id_seance)
+    #id_exercice → Exercice(id_exercice)
+
+Exercice (<u>id_exercice</u>, nom_exercice, description_optionnelle)
+
+Repas (<u>id_repas</u>, heure, type, #id_athlète)
+    #id_athlète → Athlète(id)
+
+CompositionRepas (<u>#id_repas, #id_aliment</u>, quantite_consommee)
+    #id_repas → Repas(id_repas)
+    #id_aliment → Aliment(id_aliment)
+
+Aliment (<u>id_aliment</u>, nom, proteines, glucides, lipides, quantite_unitaire_g)
